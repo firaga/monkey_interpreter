@@ -6,24 +6,25 @@ import (
 	"strings"
 )
 
-// The base Node interface
+// Node The base Node interface
 type Node interface {
 	TokenLiteral() string
 	String() string
 }
 
-// All statement nodes implement this
+// Statement All statement nodes implement this
 type Statement interface {
 	Node
 	statementNode()
 }
 
-// All expression nodes implement this
+// Expression All expression nodes implement this
 type Expression interface {
 	Node
 	expressionNode()
 }
 
+// Program implement node
 type Program struct {
 	Statements []Statement
 }
@@ -46,7 +47,8 @@ func (p *Program) String() string {
 	return out.String()
 }
 
-// Statements
+// LetStatement Statements
+// implement node && statement
 type LetStatement struct {
 	Token token.Token // the token.LET token
 	Name  *Identifier
@@ -71,6 +73,7 @@ func (ls *LetStatement) String() string {
 	return out.String()
 }
 
+// ReturnStatement implement node && statement
 type ReturnStatement struct {
 	Token       token.Token // the 'return' token
 	ReturnValue Expression
@@ -92,6 +95,7 @@ func (rs *ReturnStatement) String() string {
 	return out.String()
 }
 
+// ExpressionStatement implement statement && node
 type ExpressionStatement struct {
 	Token      token.Token // the first token of the expression
 	Expression Expression
@@ -123,7 +127,8 @@ func (bs *BlockStatement) String() string {
 	return out.String()
 }
 
-// Expressions
+// Identifier Expressions 标识符
+//implement express && node
 type Identifier struct {
 	Token token.Token // the token.IDENT token
 	Value string
