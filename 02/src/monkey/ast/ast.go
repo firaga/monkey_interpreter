@@ -129,6 +129,7 @@ func (bs *BlockStatement) String() string {
 
 // Identifier Expressions 标识符
 //implement express && node
+//标识符也实现表达式接口
 type Identifier struct {
 	Token token.Token // the token.IDENT token
 	Value string

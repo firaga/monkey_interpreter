@@ -10,6 +10,8 @@ import (
 
 const PROMPT = ">> "
 
+// Start RPPL read paser print loop
+//       REPL      evaluate
 func Start(in io.Reader, out io.Writer) {
 	scanner := bufio.NewScanner(in)
 
