@@ -1,1 +1,4 @@
-package monkey
+package main
+
+func main() {
+}
