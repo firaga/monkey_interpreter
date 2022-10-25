@@ -2,8 +2,6 @@
 
 package token
 
-import "fmt"
-
 //let five = 5;
 //let ten = 10;
 //
@@ -37,6 +35,8 @@ const (
 	BANG     = "!"
 	ASTERISK = "*"
 	SLASH    = "/"
+	EQ       = "=="
+	NOT_EQ   = "!="
 
 	LT = "<"
 	GT = ">"
@@ -71,9 +71,6 @@ var keywords = map[string]TokenType{
 }
 
 func LookupIdent(ident string) TokenType {
-	if ident == "else" {
-		fmt.Println(ident)
-	}
 	if tok, ok := keywords[ident]; ok {
 		//返回匹配的keyword
 		return tok
