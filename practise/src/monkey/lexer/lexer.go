@@ -5,7 +5,7 @@ import "monkey/token"
 type Lexer struct {
 	input        string
 	position     int  //字符串当前位置
-	readPosition int  //字符串读取位置
+	readPosition int  //字符串将要读取位置
 	ch           byte //当前位置值
 }
 
